@@ -1,47 +1,89 @@
 @use "../util" as *;
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
-    justify-items: center;
-    gap: rem(30);
-
-    @include breakpoint(medium) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include breakpoint(large) {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    align-self: center;
+    grid-area: 2 / 2;
 }
 
 .card {
-    position: relative;
-    overflow: hidden;
-    flex: 1;
-    background-color: var(--cyan);
+    background-color: var(--verydarkblue-card-bg);
     color: var(--white);
-    padding: rem(25);
-    text-align: center;
+    border-radius: 15px;
+    
+    &__image {
+        width: 100%;
+        padding: 20px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    }
 
     &__name {
         color: var(--white);
         font-weight: 700;
-        letter-spacing: rem(-2);
-        line-height: 1;
-        margin-bottom: rem(4);
+        font-size: 25px;
+        padding-left: 30px;
     }
 
     &__descript {
-        font-size: rem(18);
-        color: (--softblue);
+        padding: 25px;
+        font-size: 18px;
+        font-weight: 300;
+        color: var(--softblue);
     }
+
+    /* Fix this (view port is not good) :  */
 
     &__price {
         display: flex;
-        justify-content: center;
+        justify-content: baseline;
         align-items: center;
-        font-size: rem(12)
+        line-height: 1;
+
+        img {
+            padding: 10px;
+        }
+    }
+
+    &__number {
+        color: var(--cyan);
+    }
+
+    &__time {
+       color: #000;
+       position: relative;
+       left: 56%;
+       padding: 4px;
+      
+       img {
+           vertical-align: bottom;
+           padding: 0;
+           margin: 0;
+       }
+    }
+
+    &__creator {
+        border-top: rem(2) solid var(--verydarkblue-line);
+        margin: 20px;
+        padding: 20px 0 20px 5px;
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+        color: var(--softblue);
+
+        img {
+            border: 3px solid var(--white);
+            max-width: 100%;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        span {
+            color: var(--white);
+            padding-left: 5px;
+            text-decoration: none;
+        }
     }
 }
