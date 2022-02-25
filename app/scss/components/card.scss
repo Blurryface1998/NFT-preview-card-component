@@ -6,84 +6,184 @@
 }
 
 .card {
+    display: grid;
+    grid-template-areas: 
+    "img img img img img img"
+    "h2 h2 h2 h2 h2 h2"
+    "p p p p p p"
+    "pri pri pri time time time"
+    "cre cre cre cre cre cre";
+    column-gap: rem(60);
+    row-gap: rem(10);
     background-color: var(--verydarkblue-card-bg);
     color: var(--white);
-    border-radius: 15px;
+    border-radius: rem(15);
+    padding: rem(20);
     
     &__image {
+        grid-area: img;
+        position: relative;
+        max-width: rem(400);
         width: 100%;
-        padding: 20px;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
 
         img {
+            display: block;
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: rem(10);
+
+            @include breakpoint(large) {
+                display: unset;
+            }
         }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0; 
+        transition: .3s ease;
+        border-radius: rem(10);
+        cursor: pointer;
+        
+        
+    }
+    .overlay:hover {
+            opacity: 0.5;
+            background: var(--cyan);
+            
+        }
+
+    .icon {
+        color: var(--white);
+        font-size: rem(100);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
     }
 
     &__name {
+        grid-area: h2;
         color: var(--white);
         font-weight: 700;
-        font-size: 25px;
-        padding-left: 30px;
+        font-size: rem(20);
+        text-align: left;
+        padding-top: rem(20);
+
+        &:hover {
+            color: var(--cyan);
+            cursor: pointer;
+        }
+
+        @include breakpoint(large) {
+            font-size: rem(35);
+        }
     }
 
     &__descript {
-        padding: 25px;
-        font-size: 18px;
+        grid-area: p;
+        font-size: rem(18);
         font-weight: 300;
         color: var(--softblue);
-    }
+        padding-top: rem(20);
+        padding-bottom: rem(20);
 
-    /* Fix this (view port is not good) :  */
+        @include breakpoint(large) {
+            font-size: rem(25);
+        }
+    }
 
     &__price {
         display: flex;
-        justify-content: baseline;
+        grid-area: pri;
+        color: var(--cyan);
         align-items: center;
-        line-height: 1;
+        flex-direction: row;
+        flex-wrap: nowrap;
+       
+        @include breakpoint(large) {
+            font-size: rem(25);
+        }
 
         img {
-            padding: 10px;
-        }
-    }
+            padding: rem(10);
 
-    &__number {
-        color: var(--cyan);
+            @include breakpoint(large) {
+                width: rem(45);
+                height: rem(50);
+            }
+        }
     }
 
     &__time {
-       color: #000;
-       position: relative;
-       left: 56%;
-       padding: 4px;
-      
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        grid-area: time;
+        color: var(--softblue);
+        width: 100%;
+        
+        @include breakpoint(large) {
+            font-size: rem(25);
+        }
+
        img {
-           vertical-align: bottom;
-           padding: 0;
-           margin: 0;
+           padding: rem(10);
+
+           @include breakpoint(large) {
+               width: rem(60);
+               height: rem(60);
+           }
        }
+
     }
 
     &__creator {
-        border-top: rem(2) solid var(--verydarkblue-line);
-        margin: 20px;
-        padding: 20px 0 20px 5px;
+        grid-area: cre;
         display: flex;
-        justify-content: baseline;
         align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        border-top: rem(2) solid var(--verydarkblue-line);
+        padding: rem(20) 0 rem(20) rem(5);
         color: var(--softblue);
 
+        @include breakpoint(large) {
+            font-size: rem(25);
+        }
+
         img {
-            border: 3px solid var(--white);
+            border: rem(2) solid var(--white);
             max-width: 100%;
-            margin: 10px;
+            margin: rem(10);
             border-radius: 50%;
+
+            @include breakpoint(large) {
+                width: rem(60);
+                height: rem(60);
+            }
         }
         span {
             color: var(--white);
-            padding-left: 5px;
+            padding-left: rem(5);
             text-decoration: none;
+
+            &:hover {
+                color: var(--cyan);
+                cursor: pointer;
+            }
         }
     }
 }
