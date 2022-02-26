@@ -25,21 +25,13 @@
         position: relative;
         width: 100%;
         cursor: pointer;
-        background-color: var(--cyan);
         opacity: 1;
-
-       &:hover {
-           background-color: var(--cyan);
-           opacity: 1;
-           
-       }
 
         .main-img {
             display: block;
             max-width: 100%;
             height: auto;
             border-radius: rem(10);
-            background: red;
             opacity: 1;
 
             
@@ -48,10 +40,6 @@
             }
         }
         
-        .main-img:hover {
-            background-color: var(--cyan);
-            opacity: 0.5;
-        }
         
     }
     .overlay {
@@ -86,7 +74,7 @@
         grid-area: h2;
         color: var(--white);
         font-weight: 700;
-        font-size: rem(20);
+        font-size: rem(16);
         text-align: left;
         padding-top: rem(20);
 
@@ -96,7 +84,7 @@
         }
 
         @include breakpoint(large) {
-            font-size: rem(26);
+            font-size: rem(20);
         }
     }
 
