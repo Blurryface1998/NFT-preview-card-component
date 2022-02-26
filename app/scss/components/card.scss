@@ -23,45 +23,49 @@
     &__image {
         grid-area: img;
         position: relative;
-        max-width: rem(400);
         width: 100%;
         cursor: pointer;
-        &:hover {
-            opacity: 1;
-        }
+        background-color: var(--cyan);
+        opacity: 1;
 
-        img {
+       &:hover {
+           background-color: var(--cyan);
+           opacity: 1;
+           
+       }
+
+        .main-img {
             display: block;
             max-width: 100%;
             height: auto;
             border-radius: rem(10);
+            background: red;
+            opacity: 1;
 
+            
             @include breakpoint(large) {
-                display: unset;
+               // display: unset;
             }
         }
+        
+        .main-img:hover {
+            background-color: var(--cyan);
+            opacity: 0.5;
+        }
+        
     }
-
     .overlay {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 100%;
-        width: 100%;
         opacity: 0; 
         transition: .3s ease;
         border-radius: rem(10);
-        cursor: pointer;
-        
         
     }
-    .overlay:hover {
-            opacity: 0.5;
-            background: var(--cyan);
-            
-        }
+    
 
     .icon {
         color: var(--white);
@@ -71,6 +75,11 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+    }
+
+    .overlay:hover {
+        background-color: rgba(0, 255, 247, 30%);
+        opacity: 1;
     }
 
     &__name {
@@ -87,7 +96,7 @@
         }
 
         @include breakpoint(large) {
-            font-size: rem(35);
+            font-size: rem(26);
         }
     }
 
@@ -100,7 +109,7 @@
         padding-bottom: rem(20);
 
         @include breakpoint(large) {
-            font-size: rem(25);
+            font-size: rem(19);
         }
     }
 
@@ -113,15 +122,15 @@
         flex-wrap: nowrap;
        
         @include breakpoint(large) {
-            font-size: rem(25);
+            font-size: rem(16);
         }
 
         img {
             padding: rem(10);
 
             @include breakpoint(large) {
-                width: rem(45);
-                height: rem(50);
+                //width: rem(35);
+                //height: rem(40);
             }
         }
     }
@@ -136,15 +145,16 @@
         width: 100%;
         
         @include breakpoint(large) {
-            font-size: rem(25);
+            font-size: rem(16);
+            
         }
 
        img {
            padding: rem(10);
 
            @include breakpoint(large) {
-               width: rem(60);
-               height: rem(60);
+              // width: rem(60);
+              // height: rem(60);
            }
        }
 
@@ -157,11 +167,11 @@
         flex-direction: row;
         flex-wrap: nowrap;
         border-top: rem(2) solid var(--verydarkblue-line);
-        padding: rem(20) 0 rem(20) rem(5);
+        padding: rem(20) 0 rem(1) rem(5);
         color: var(--softblue);
 
         @include breakpoint(large) {
-            font-size: rem(25);
+            font-size: rem(19);
         }
 
         img {
@@ -171,8 +181,8 @@
             border-radius: 50%;
 
             @include breakpoint(large) {
-                width: rem(60);
-                height: rem(60);
+               // width: rem(60);
+               // height: rem(60);
             }
         }
         span {

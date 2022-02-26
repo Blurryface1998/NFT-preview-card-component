@@ -1,7 +1,9 @@
+@use "../util" as *;
+
 html {
     font-size: 100%;
     box-sizing: border-box;
-    height: 100%;
+    
 }
 
 *, *::before, *::after {
@@ -12,10 +14,14 @@ html {
 }
 
 body {
-    min-height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background: var(--verydarkblue-main-bg);
     font-family: var(--font-outfit);
+    height: 70vw;
+
+    @include breakpoint-down(medium) {
+        height: 150vw;
+    }
 }
