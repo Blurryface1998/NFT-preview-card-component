@@ -1,29 +1,24 @@
 @use "../util" as *;
 
-.cards {
-    align-self: center;
-    grid-area: 2 / 2;
+main {
+    width: 100%;
+    margin: 10% auto;
+
+    @include breakpoint(large) {
+        width: 30%;
+        margin: 10% auto;
+    }
 }
 
+
 .card {
-    display: grid;
-    grid-template-areas: 
-    "img img img img img img"
-    "h2 h2 h2 h2 h2 h2"
-    "p p p p p p"
-    "pri pri pri time time time"
-    "cre cre cre cre cre cre";
-    column-gap: rem(60);
-    row-gap: rem(10);
     background-color: var(--verydarkblue-card-bg);
     color: var(--white);
     border-radius: rem(15);
-    padding: rem(20);
+    padding: rem(15);
     
     &__image {
-        grid-area: img;
         position: relative;
-        width: 100%;
         cursor: pointer;
         opacity: 1;
 
@@ -33,11 +28,6 @@
             height: auto;
             border-radius: rem(10);
             opacity: 1;
-
-            
-            @include breakpoint(large) {
-               // display: unset;
-            }
         }
         
         
@@ -57,7 +47,6 @@
 
     .icon {
         color: var(--white);
-        font-size: rem(100);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -71,10 +60,8 @@
     }
 
     &__name {
-        grid-area: h2;
         color: var(--white);
         font-weight: 700;
-        font-size: rem(16);
         text-align: left;
         padding-top: rem(20);
 
@@ -82,36 +69,24 @@
             color: var(--cyan);
             cursor: pointer;
         }
-
-        @include breakpoint(large) {
-            font-size: rem(20);
-        }
     }
 
     &__descript {
-        grid-area: p;
-        font-size: rem(18);
         font-weight: 300;
         color: var(--softblue);
         padding-top: rem(20);
         padding-bottom: rem(20);
-
-        @include breakpoint(large) {
-            font-size: rem(19);
-        }
     }
 
     &__price {
         display: flex;
-        grid-area: pri;
         color: var(--cyan);
         align-items: center;
         flex-direction: row;
         flex-wrap: nowrap;
+        margin-bottom: rem(-37);
        
-        @include breakpoint(large) {
-            font-size: rem(16);
-        }
+        
 
         img {
             padding: rem(10);
@@ -127,29 +102,18 @@
         display: flex;
         align-items: center;
         flex-direction: row;
+        justify-content: end;
         flex-wrap: nowrap;
-        grid-area: time;
         color: var(--softblue);
         width: 100%;
-        
-        @include breakpoint(large) {
-            font-size: rem(16);
-            
-        }
+        margin-bottom: rem(15);
 
        img {
            padding: rem(10);
-
-           @include breakpoint(large) {
-              // width: rem(60);
-              // height: rem(60);
-           }
        }
-
     }
 
     &__creator {
-        grid-area: cre;
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -157,10 +121,7 @@
         border-top: rem(2) solid var(--verydarkblue-line);
         padding: rem(20) 0 rem(1) rem(5);
         color: var(--softblue);
-
-        @include breakpoint(large) {
-            font-size: rem(19);
-        }
+        
 
         img {
             border: rem(2) solid var(--white);
